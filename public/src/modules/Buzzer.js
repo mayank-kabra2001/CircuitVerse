@@ -72,10 +72,10 @@ export default class Buzzer extends CircuitElement {
             return;
         }
 
-        console.log(this.Duration.value) ; 
+        // console.log(this.Duration.value) ; 
 
         if((this.start.value === 1)&& (this.completed != this.Duration.value)){
-        	console.log("y") ;
+        	// console.log("y") ;
         	var audioCtx = new(window.AudioContext || window.webkitAudioContext)(); 
 	        var oscillator = audioCtx.createOscillator();
 	        oscillator.type = 'square';
@@ -85,7 +85,7 @@ export default class Buzzer extends CircuitElement {
 
 	        
 	        if(this.Sharp == 1) {
-	        	console.log("yes") ; 
+	        	// console.log("yes") ; 
 	        	this.Sharp = 0 ; 
 	 			oscillator.frequency.value = (this.Frequency.value)*Math.pow(2 , 1/12); // value in hertz
 	 		}
@@ -96,14 +96,14 @@ export default class Buzzer extends CircuitElement {
 	 		}
 
 	 		else{
-	 			console.log("yayayaya") ;
+	 			// console.log("yayayaya") ;
 	 			oscillator.frequency.value = this.Frequency.value;
 	 		}
 
 	  		oscillator.connect(audioCtx.destination);
 	  		oscillator.start();
 	  		oscillator.stop(audioCtx.currentTime + this.Duration.value) ; 
-	  		console.log("yesssss") ;
+	  		// console.log("yesssss") ;
 	  		this.completed = this.Duration.value ; 
   		}
 
